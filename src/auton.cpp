@@ -1,6 +1,7 @@
 #include "main.h"
 #include "config.hpp"
 #include "autoSelect/selection.h"
+#include "color_spin.cpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -16,7 +17,7 @@
 
 void autonomous() {
 
-// Create a chassis with 4 motors, 4 inch wheel diameter, 14 inch wheel track, and configures odometry.
+    // Create a chassis with 4 motors, 4 inch wheel diameter, 14 inch wheel track, and configure odometry.
 	std::shared_ptr<OdomChassisController> drivetrain = ChassisControllerBuilder()
     // Set the ports of the left and right motors.
     .withMotors(
@@ -29,77 +30,99 @@ void autonomous() {
     .withOdometry()
     // Build an odometry chassis.
     .buildOdometry();
+    
+    // Run the autonomous based on the selector.
+    switch (selector::auton) {
+        
+        // Runs the autonomous code for the left side, red alliance (WIP).
+        case 1: 
 
-// Runs the autonomous code for the left side, red alliance (WIP).
-if (selector::auton == 1) {
+            // Set the color tolerance to be in between 330 and 30 degrees (red).
+            color_tolerance = {330, 30};
 
-	// Set the drivetrain state to zero.
-	drivetrain->setState({0_in, 0_in, 0_deg});
+            // Set the drivetrain state to zero.
+            drivetrain->setState({0_in, 0_in, 0_deg});
 
-	// Move the drivetrain backward 2 inches.
-	drivetrain->moveDistance(-2_in);
+            // Move the drivetrain backward 2 inches.
+            drivetrain->moveDistance(-2_in);
 
-    // Turn the roller 90 degrees, at an rpm of 100.
-    roller.move_relative(90, 100);
+            // Turn the roller 90 degrees, at an rpm of 100.
+            roller.move_relative(90, 100);
 
-}
+            break;
 
-// Runs the autonomous code for the right side, red alliance.
-else if (selector::auton == 2) {
-	
-    pros::delay(20);
+        // Runs the autonomous code for the right side, red alliance (WIP).
+        case 2: 
 
-}
+            // Set the color tolerance to be in between 330 and 30 degrees (red).
+            color_tolerance = {330, 30};
+            
+            break;
 
-// Does nothing for the red alliance
-else if (selector::auton == 3) {
-	
-    pros::delay(20);
+        // Does nothing for the red alliance.
+        case 3: 
 
-}
+            // Set the color tolerance to be in between 330 and 30 degrees (red).
+            color_tolerance = {330, 30};
 
-// Runs the autonomous code for the left side, blue alliance.
-else if (selector::auton == -1) {
-	
-    pros::delay(20);
+            break;
+        
+        // Runs the autonomous code for the left side, blue alliance (WIP).
+        case -1: 
 
-}
+            // Set the color tolerance to be in between 210 and 270 degrees (blue).
+            color_tolerance = {210, 270};
 
-// Runs the autonomous code for the right side, blue alliance.
-else if (selector::auton == -2) {
-	
-    pros::delay(20);
+            // Set the drivetrain state to zero.
+            drivetrain->setState({0_in, 0_in, 0_deg});
 
-}
+            // Move the drivetrain backward 2 inches.
+            drivetrain->moveDistance(-2_in);
+            
+            // Turn the roller 90 degrees, at an rpm of 100.
+            roller.move_relative(90, 100);
+            
+            break;
+        
+        // Runs the autonomous code for the right side, blue alliance (WIP).
+        case -2: 
 
-// Does nothing for the blue alliance
-else if (selector::auton == -3) {
-	
-    pros::delay(20);
+            // Set the color tolerance to be in between 210 and 270 degrees (blue).
+            color_tolerance = {210, 270};
+            
+            break;
+        
+        // Does nothing for the blue alliance.
+        case -3: 
 
-}
+            // Set the color tolerance to be in between 210 and 270 degrees (blue).
+            color_tolerance = {210, 270};
 
-// Runs the skills autonomous code.
-else if (selector::auton == 0) {
-	
-    // Set the drivetrain state to zero.
-	drivetrain->setState({0_in, 0_in, 0_deg});
+            break;
+        
+        // Runs the skills autonomous code.
+        case 0: 
 
-	// Move the drivetrain backward 2 inches.
-	drivetrain->moveDistance(-2_in);
+            // Set the drivetrain state to zero.
+            drivetrain->setState({0_in, 0_in, 0_deg});
 
-    // Turn the roller 180 degrees, at an rpm of 100.
-    roller.move_relative(180, 100);
+            // Move the drivetrain backward 2 inches.
+            drivetrain->moveDistance(-2_in);
 
-    // Move the drivetrain forward 2 feet.
-    drivetrain->moveDistance(2_ft);
-
-	// Turn the drivetrain 45 degrees to the right.
-	drivetrain->turnAngle(45_deg);
-
-    // Move the drivetrain forward 12.7 feet.
-    drivetrain->moveDistance(12.7_ft);
-
-}
+            // Turn the roller 180 degrees, at an rpm of 100.
+            roller.move_relative(180, 100);
+            
+            // Move the drivetrain forward 2 feet.
+            drivetrain->moveDistance(2_ft);
+            
+            // Turn the drivetrain 45 degrees to the right.
+            drivetrain->turnAngle(45_deg);
+            
+            // Move the drivetrain forward 12.7 feet.
+            drivetrain->moveDistance(12.7_ft);
+            
+            break;
+    
+    }
 
 }
