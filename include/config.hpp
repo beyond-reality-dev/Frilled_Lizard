@@ -22,3 +22,4 @@ extern pros::Motor launcher;
 
 // Define variables.
 extern std::pair<double, double> color_tolerance;
+extern std::string target_color;

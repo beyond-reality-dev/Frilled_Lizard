@@ -39,6 +39,7 @@ void autonomous() {
 
             // Set the color tolerance to be in between 330 and 30 degrees (red).
             color_tolerance = {330, 30};
+            target_color = "red";
 
             // Set the drivetrain state to zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
@@ -46,8 +47,8 @@ void autonomous() {
             // Move the drivetrain backward 2 inches.
             drivetrain->moveDistance(-2_in);
 
-            // Turn the roller 90 degrees, at an rpm of 100.
-            roller.move_relative(90, 100);
+            // Spin the roller to the red side.
+            color_spin();
 
             break;
 
@@ -56,6 +57,7 @@ void autonomous() {
 
             // Set the color tolerance to be in between 330 and 30 degrees (red).
             color_tolerance = {330, 30};
+            target_color = "red";
             
             break;
 
@@ -64,6 +66,7 @@ void autonomous() {
 
             // Set the color tolerance to be in between 330 and 30 degrees (red).
             color_tolerance = {330, 30};
+            target_color = "red";
 
             break;
         
@@ -72,6 +75,7 @@ void autonomous() {
 
             // Set the color tolerance to be in between 210 and 270 degrees (blue).
             color_tolerance = {210, 270};
+            target_color = "blue";
 
             // Set the drivetrain state to zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
@@ -79,8 +83,8 @@ void autonomous() {
             // Move the drivetrain backward 2 inches.
             drivetrain->moveDistance(-2_in);
             
-            // Turn the roller 90 degrees, at an rpm of 100.
-            roller.move_relative(90, 100);
+            // Spin the roller to the blue side.
+            color_spin();
             
             break;
         
@@ -89,6 +93,7 @@ void autonomous() {
 
             // Set the color tolerance to be in between 210 and 270 degrees (blue).
             color_tolerance = {210, 270};
+            target_color = "blue";
             
             break;
         
@@ -97,11 +102,16 @@ void autonomous() {
 
             // Set the color tolerance to be in between 210 and 270 degrees (blue).
             color_tolerance = {210, 270};
+            target_color = "blue";
 
             break;
         
         // Runs the skills autonomous code.
         case 0: 
+
+            // Set the color tolerance to be in between 330 and 30 degrees (red).
+            color_tolerance = {330, 30};
+            target_color = "red";
 
             // Set the drivetrain state to zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
@@ -109,8 +119,8 @@ void autonomous() {
             // Move the drivetrain backward 2 inches.
             drivetrain->moveDistance(-2_in);
 
-            // Turn the roller 180 degrees, at an rpm of 100.
-            roller.move_relative(180, 100);
+            // Spin the roller to the red side.
+            color_spin();
             
             // Move the drivetrain forward 2 feet.
             drivetrain->moveDistance(2_ft);

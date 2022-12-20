@@ -4,21 +4,37 @@
 // Spin the roller until the detected hue is in between the accepted color values.
 void color_spin() {
 
-    while (true) {
+    // Set the not_target_color variable to true.
+    bool not_target_color = true;
 
-        // Get the hue of the color.
-        double detected_color = color_sensor.getHue();
+    while (not_target_color == true) {
 
-        // If the detected color is in between the accepted color values, stop the roller.
-        if (detected_color >= color_tolerance.first && detected_color <= color_tolerance.second) {
-            roller.move(0);
-            break;
+        // If the target color is red, roll the roller until the detected color is in between the accepted color values.
+        if (target_color == "red") {
+            double detected_color = color_sensor.getHue();
+            if (detected_color >= color_tolerance.first or detected_color <= color_tolerance.second) {
+                roller.move(0);
+                break;
+            }
+            else {
+                roller.move_relative(10, 100);
+                pros::delay(20);
+            }
         }
-        else {
-            roller.move_relative(10, 100);
-            pros::delay(20);
-        }
 
+        // If the target color is blue, roll the roller until the detected color is in between the accepted color values.
+        else if (target_color == "blue") {
+            double detected_color = color_sensor.getHue();
+            if (detected_color >= color_tolerance.first && detected_color <= color_tolerance.second) {
+                roller.move(0);
+                break;
+            }
+            else {
+                roller.move_relative(10, 100);
+                pros::delay(20);
+            }
+        }
+        
     }
 
 }
