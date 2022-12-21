@@ -2,6 +2,7 @@
 #include "config.hpp"
 #include "autoSelect/selection.h"
 #include "color_spin.cpp"
+#include "chessboard.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task

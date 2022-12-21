@@ -20,6 +20,7 @@ include/*
 !api.h
 !main.h
 !config.hpp
+!chessboard.hpp
 
 # Makefile
 Makefile
