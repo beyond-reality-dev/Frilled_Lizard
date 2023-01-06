@@ -1,5 +1,6 @@
 #include "main.h"
 #include "config.hpp"
+#include "color_spin.cpp"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -33,44 +34,60 @@ void opcontrol() {
 
 		// Use the R1 button to toggle the intake.
 		if (master.get_digital(DIGITAL_R1)) {
+
 			if (!intake_button_held) {
+
 				intake_button_held = true;
 				intakeOn = !intakeOn;
+
 				if (intakeOn) {
 					intake.move(127);
 				}
+
 				else {
 					intake.move(0);
 				}
+
 			}
+
             else {
                 intake_button_held = false;
             }
-		}
 
-		// Use the left bumpers to move the roller.
-		if (master.get_digital(DIGITAL_L1)) {
-			roller.move(127);
-		}
-		else if (master.get_digital(DIGITAL_L2)) {
-			roller.move(-127);
 		}
 
 		// Use the R2 button to toggle the launcher.
 		if (master.get_digital(DIGITAL_R2)) {
+
 			if (!launcher_button_held) {
+
 				launcher_button_held = true;
 				launcherOn = !launcherOn;
+
 				if (launcherOn) {
 					launcher.move(127);
 				}
+
 				else {
 					launcher.move(0);
 				}
+
 			}
+
 			else {
 				launcher_button_held = false;
 			}
+			
+		}
+
+		// Use the L1 button to automatically spin the roller to the target color.
+		if (master.get_digital(DIGITAL_L1)) {
+			color_spin();
+		}
+
+		// Use the L2 button to manually spin the roller.
+		else if (master.get_digital(DIGITAL_L2)) {
+			roller.move(127);
 		}
 	
     }
