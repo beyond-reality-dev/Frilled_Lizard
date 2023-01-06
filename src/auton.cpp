@@ -38,11 +38,10 @@ void autonomous() {
         // Runs the autonomous code for the left side, red alliance (WIP).
         case 1: 
 
-            // Set the color tolerance to be in between 210 and 270 degrees (red).
-            color_tolerance = {210, 270};
+            // Set the target color to be red.
             target_color = "red";
 
-            // Set the drivetrain state to zero.
+            // Set the drivetrain state to be zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
 
             // Move the drivetrain backward 2 inches.
@@ -56,8 +55,7 @@ void autonomous() {
         // Runs the autonomous code for the right side, red alliance (WIP).
         case 2: 
 
-            // Set the color tolerance to be in between 210 and 270 degrees (red).
-            color_tolerance = {210, 270};
+            // Set the target color to be red.
             target_color = "red";
             
             break;
@@ -65,8 +63,7 @@ void autonomous() {
         // Does nothing for the red alliance.
         case 3: 
 
-            // Set the color tolerance to be in between 210 and 270 degrees (red).
-            color_tolerance = {210, 270};
+            // Set the target color to be red.
             target_color = "red";
 
             break;
@@ -74,8 +71,7 @@ void autonomous() {
         // Runs the autonomous code for the left side, blue alliance (WIP).
         case -1: 
 
-            // Set the color tolerance to be in between 330 and 30 degrees (blue).
-            color_tolerance = {330, 30};
+            // Set the target color to be blue.
             target_color = "blue";
 
             // Set the drivetrain state to zero.
@@ -92,8 +88,7 @@ void autonomous() {
         // Runs the autonomous code for the right side, blue alliance (WIP).
         case -2: 
 
-            // Set the color tolerance to be in between 330 and 30 degrees (blue).
-            color_tolerance = {330, 30};
+            // Set the target color to be blue.
             target_color = "blue";
             
             break;
@@ -101,8 +96,7 @@ void autonomous() {
         // Does nothing for the blue alliance.
         case -3: 
 
-            // Set the color tolerance to be in between 330 and 30 degrees (blue).
-            color_tolerance = {330, 30};
+            // Set the target color to be blue.
             target_color = "blue";
 
             break;
@@ -110,8 +104,7 @@ void autonomous() {
         // Runs the skills autonomous code.
         case 0: 
 
-            // Set the color tolerance to be in between 210 and 270 degrees (red).
-            color_tolerance = {210, 270};
+            // Set the target color to be red.
             target_color = "red";
 
             // Set the drivetrain state to zero.
