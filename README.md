@@ -22,7 +22,7 @@ The program implements the [VEX Autonomous Selector for PROS](https://github.com
 
 In order to allow non-programmers on the team to be able to program autonomous routines, I created a virtual "chessboard" for the game field. The system divides the field into tiles, and allows the robot to be driven directly to those positions. The syntax is similar to that of chess notation or battleship, and will hopefully make it easier for others to create and modify autonomous programs.
 
-![Field Diagram](./images/"Field Diagram.svg")
+![Field Diagram](images/Field_Diagram.svg)
 
 ## Future Changes
 
