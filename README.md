@@ -20,7 +20,7 @@ The program implements the [VEX Autonomous Selector for PROS](https://github.com
 
 ### Chessboard Pathfinding System
 
-In order to allow non-programmers on the team to be able to program autonomous routines, I created a virtual "chessboard" for the game field. The system divides the field into tiles, and allows the robot to be driven directly to those positions. The syntax is similar to that of chess notation or battleship, and will hopefully make it easier for others to create and modify autonomous programs.
+In order to allow non-programmers on the team to be able to program autonomous routines, I created a virtual "chessboard" for the game field. The system divides the field into tiles, and allows the robot to be driven directly to those positions. The syntax is similar to that of chess notation or battleship, and will hopefully make it easier for others to create and modify autonomous programs. A visual representation of the board is included below:
 
 ![Field Diagram](images/Field_Diagram.svg)
 
