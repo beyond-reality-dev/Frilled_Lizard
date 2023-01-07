@@ -20,17 +20,17 @@ void autonomous() {
 
     // Create a chassis with 4 motors, 4 inch wheel diameter, 14 inch wheel track, and configure odometry.
 	std::shared_ptr<OdomChassisController> drivetrain = ChassisControllerBuilder()
-    // Set the ports of the left and right motors.
-    .withMotors(
-        {3, 4}, // Left motors are at ports 3 & 4.
-        {-1, -2} // Right motors are at ports 1 & 2 (reversed).
-    )
-    // Use the green gearset, 4 inch wheel diameter, and 14 inch wheel track.
-    .withDimensions(AbstractMotor::gearset::green, {{4_in, 14_in}, imev5GreenTPR})
-    // Use the same scales as the chassis.
-    .withOdometry()
-    // Build an odometry chassis.
-    .buildOdometry();
+        // Set the ports of the left and right motors.
+        .withMotors(
+            {3, 4}, // Left motors are at ports 3 & 4.
+            {-1, -2} // Right motors are at ports 1 & 2 (reversed).
+        )
+        // Use the green gearset, 4 inch wheel diameter, and 14 inch wheel track.
+        .withDimensions(AbstractMotor::gearset::green, {{4_in, 14_in}, imev5GreenTPR})
+        // Use the same scales as the chassis.
+        .withOdometry()
+        // Build an odometry chassis.
+        .buildOdometry();
     
     // Run the autonomous based on the selector.
     switch (selector::auton) {
