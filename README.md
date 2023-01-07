@@ -24,8 +24,12 @@ In order to allow non-programmers on the team to be able to program autonomous r
 
 ![Field Diagram](images/Field_Diagram.svg)
 
-## Future Changes
-
 ### Automatic Roller
 
-The program will use a VEX Vision Sensor to detect the color of the bottom of the roller. If it detects that the color is different than the target color, which is the opposite of the alliance color, it will turn it in increments and repeatedly update the color. It will stop once it detects the desired color, or is interrupted by the controller.
+The program uses a VEX Vision Sensor to detect the color of the bottom of the roller. If it detects that the color is different than the target color, which is the opposite of the alliance color, it will turn it in increments and repeatedly update the color. It will stop once it detects the desired color, or is interrupted by the controller.
+
+## Future Changes
+
+### Automatic Disc Shot
+
+The program will also utilize the VEX Vision Sensor to both orient towards and calculate the distance to the target goal. It will do this by first identifying the largest object of the target color, which will be the desired goal, and then determine the current and necessary distance using trigonometry. This will also be implemented alongside the existing odometry system that will ensure accurate aiming. Given potential challenges with reliably targeting the goal, it is likely that this program will only be used during the autonomous portion.
