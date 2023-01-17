@@ -1,8 +1,19 @@
 # Frilled Lizard
 
-## About
-
 This is the official repository of VEX Robotics Competition team 5588T. 
+
+## Table of Contents <!-- omit from toc -->
+
+- [Frilled Lizard](#frilled-lizard)
+    - [Features](#features)
+        - [Motor Toggles](#motor-toggles)
+        - [Odometry](#odometry)
+        - [Autonomous Selector](#autonomous-selector)
+        - [Chessboard Pathfinding System](#chessboard-pathfinding-system)
+        - [Automatic Roller](#automatic-roller)
+    - [Future Changes](#future-changes)
+        - [Automatic Disc Shot](#automatic-disc-shot)
+    - [Reversible Steering](#reversible-steering)
 
 ## Features
 
