@@ -1,18 +1,17 @@
-# Frilled Lizard
+# Frilled Lizard <!-- omit from toc -->
 
 This is the official repository of VEX Robotics Competition team 5588T. 
 
 ## Table of Contents <!-- omit from toc -->
 
-- [Frilled Lizard](#frilled-lizard)
-    - [Features](#features)
-        - [Motor Toggles](#motor-toggles)
-        - [Odometry](#odometry)
-        - [Autonomous Selector](#autonomous-selector)
-        - [Chessboard Pathfinding System](#chessboard-pathfinding-system)
-        - [Automatic Roller](#automatic-roller)
-    - [Future Changes](#future-changes)
-        - [Automatic Disc Shot](#automatic-disc-shot)
+- [Features](#features)
+    - [Motor Toggles](#motor-toggles)
+    - [Odometry](#odometry)
+    - [Autonomous Selector](#autonomous-selector)
+    - [Chessboard Pathfinding System](#chessboard-pathfinding-system)
+    - [Automatic Roller](#automatic-roller)
+- [Future Changes](#future-changes)
+    - [Automatic Disc Shot](#automatic-disc-shot)
     - [Reversible Steering](#reversible-steering)
 
 ## Features
@@ -45,6 +44,6 @@ The program uses a VEX Vision Sensor to detect the color of the bottom of the ro
 
 The program will also utilize the VEX Vision Sensor to both orient towards and calculate the distance to the target goal. It will do this by first identifying the largest object of the target color, which will be the desired goal, and then determine the current and necessary distance using trigonometry. This will also be implemented alongside the existing odometry system that will ensure accurate aiming. Given potential challenges with reliably targeting the goal, it is likely that this program will only be used during the autonomous portion.
 
-## Reversible Steering
+### Reversible Steering
 
 With a push of a button, the driver will be able to reverse the direction of controlling the robot. This is an idea I originally came up with for last year's game, but never fully implemented. It should help the driver to easily reorient themself and swap between turning a roller and picking up and shooting discs into the alliance high goal.
