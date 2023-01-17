@@ -80,9 +80,12 @@ void opcontrol() {
 			
 		}
 
-		// Use the L1 button to automatically spin the roller to the target color.
-		if (master.get_digital(DIGITAL_L1)) {
+		// Use the L1 button to automatically spin the roller to the target color. (WIP)
+		/*	if (master.get_digital(DIGITAL_L1)) {
 			color_spin();
+		}*/
+		if (master.get_digital(DIGITAL_L1)) {
+		roller.move(-127);
 		}
 
 		// Use the L2 button to manually spin the roller.
