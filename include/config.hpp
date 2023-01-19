@@ -21,6 +21,3 @@ extern pros::Motor_Group right_wheels;
 extern pros::Motor intake;
 extern pros::Motor roller;
 extern pros::Motor launcher;
-
-// Declare variables.
-extern std::string target_color;
