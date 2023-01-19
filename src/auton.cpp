@@ -33,10 +33,7 @@ void autonomous() {
         .buildOdometry();
     
     // Run the autonomous based on the selector.
-    if (selector::auton == 1) {
-        drivetrain->setState({0_in, 0_in, 0_deg});
-    }
-    /*switch (selector::auton) {
+    switch (selector::auton) {
         
         // Runs the autonomous code for the left side, red alliance (WIP).
         case 1: 
@@ -130,6 +127,6 @@ void autonomous() {
             
             break;
     
-    }*/
+    }
 
 }
