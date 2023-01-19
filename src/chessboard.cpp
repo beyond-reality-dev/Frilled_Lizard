@@ -12,6 +12,43 @@ E1 E2 E3 E4 E5 E6
 F1 F2 F3 F4 F5 F6
 */
 
+okapi::Point A1;
+okapi::Point A2;
+okapi::Point A3;
+okapi::Point A4;
+okapi::Point A5;
+okapi::Point A6;
+okapi::Point B1;
+okapi::Point B2;
+okapi::Point B3;
+okapi::Point B4;
+okapi::Point B5;
+okapi::Point B6;
+okapi::Point C1;
+okapi::Point C2;
+okapi::Point C3;
+okapi::Point C4;
+okapi::Point C5;
+okapi::Point C6;
+okapi::Point D1;
+okapi::Point D2;
+okapi::Point D3;
+okapi::Point D4;
+okapi::Point D5;
+okapi::Point D6;
+okapi::Point E1;
+okapi::Point E2;
+okapi::Point E3;
+okapi::Point E4;
+okapi::Point E5;
+okapi::Point E6;
+okapi::Point F1;
+okapi::Point F2;
+okapi::Point F3;
+okapi::Point F4;
+okapi::Point F5;
+okapi::Point F6;
+
 // Set the values of the chessboard squares.
 void set_squares() {
     

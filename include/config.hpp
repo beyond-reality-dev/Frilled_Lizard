@@ -6,8 +6,8 @@ extern pros::Controller master;
 
 // Define the sensors.
 extern pros::Vision color_sensor;
-extern pros::vision_signature_s_t RED_SIG = color_sensor.get_signature(1);
-extern pros::vision_signature_s_t BLUE_SIG = color_sensor.get_signature(2);
+extern pros::vision_signature_s_t RED_SIG;
+extern pros::vision_signature_s_t BLUE_SIG;
 
 // Define the drivetrain motors.
 extern pros::Motor left_back;

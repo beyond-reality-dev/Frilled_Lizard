@@ -1,7 +1,7 @@
 #pragma once
 #include "main.h"
 
-// Define the chessboard squares.
+// Declare the chessboard squares.
 extern Point A1;
 extern Point A2;
 extern Point A3;
@@ -38,3 +38,6 @@ extern Point F3;
 extern Point F4;
 extern Point F5;
 extern Point F6;
+
+// Declare the chessboard initialization function.
+void set_squares();

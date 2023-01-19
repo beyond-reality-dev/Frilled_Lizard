@@ -1,5 +1,13 @@
 #include "main.h"
 #include "config.hpp"
+#include "color_spin.hpp"
+
+// Configure sensors.
+#define VISION_SENSOR_PORT 20
+pros::Vision color_sensor(VISION_SENSOR_PORT);
+pros::vision_signature_s_t RED_SIG = color_sensor.get_signature(1);
+pros::vision_signature_s_t BLUE_SIG = color_sensor.get_signature(2);
+std::string target_color;
 
 // Spin the roller until the detected hue is in between the accepted color values.
 void color_spin() {
