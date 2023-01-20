@@ -22,7 +22,7 @@
 #define RIGHT_BACK_PORT -1
 #define RIGHT_FRONT_PORT -2
 #define INTAKE_PORT 5
-#define ROLLER_PORT 6
+#define ROLLER_PORT 10
 #define LAUNCHER_PORT 7
 
 // Configure controllers.
@@ -45,9 +45,9 @@ void opcontrol() {
 
 	// Set booleans for the toggle switches.
 	bool intakeOn = false;
-	bool intake_button_held = false;
 	bool launcherOn = false;
-	bool launcher_button_held = false;
+	bool forwardRollerOn = false;
+	bool backwardRollerOn = false;
 
 	while (true) {
 
@@ -57,65 +57,52 @@ void opcontrol() {
 		// Use the right joystick to move the right wheels of the robot.
 		right_wheels.move(master.get_analog(ANALOG_RIGHT_Y));
 
-		// Use the R1 button to toggle the intake.
-		if (master.get_digital(DIGITAL_R1)) {
-
-			if (!intake_button_held) {
-
-				intake_button_held = true;
-				intakeOn = !intakeOn;
-
-				if (intakeOn) {
-					intake.move(127);
-				}
-
-				else {
-					intake.move(0);
-				}
-
-			}
-
-            else {
-                intake_button_held = false;
-            }
-
+		// Use the R1 button to toggle the intake on.
+		if (master.get_digital(DIGITAL_R1) && intakeOn == false) {
+			intake.move(127);
+			intakeOn = true;
 		}
 
-		// Use the R2 button to toggle the launcher.
-		if (master.get_digital(DIGITAL_R2)) {
-
-			if (!launcher_button_held) {
-
-				launcher_button_held = true;
-				launcherOn = !launcherOn;
-
-				if (launcherOn) {
-					launcher.move(127);
-				}
-
-				else {
-					launcher.move(0);
-				}
-
-			}
-
-			else {
-				launcher_button_held = false;
-			}
-			
+		// Use the R1 button to toggle the intake off if it is already on.
+		else if (master.get_digital(DIGITAL_R1) && intakeOn == true) {
+			intake.move(0);
+			intakeOn = false;
 		}
 
-		// Use the L1 button to automatically spin the roller to the target color. (WIP)
-		/*	if (master.get_digital(DIGITAL_L1)) {
-			color_spin();
-		}*/
-		if (master.get_digital(DIGITAL_L1)) {
-		roller.move(-127);
+		// Use the R2 button to toggle the launcher on.
+		if (master.get_digital(DIGITAL_R2) && launcherOn == false) {
+			launcher.move(127);
+			launcherOn = true;
 		}
 
-		// Use the L2 button to manually spin the roller.
-		else if (master.get_digital(DIGITAL_L2)) {
+		// Use the R2 button to toggle the launcher off if it is already on.
+		else if (master.get_digital(DIGITAL_R2) && launcherOn == true) {
+			launcher.move(0);
+			launcherOn = false;
+		}
+
+		// Use the L1 button to toggle the roller forward.
+		if (master.get_digital(DIGITAL_L1) && forwardRollerOn == false) {
 			roller.move(127);
+			forwardRollerOn = true;
+		}
+
+		// Use the L1 button to toggle the roller off if it is already on.
+		else if (master.get_digital(DIGITAL_L1) && forwardRollerOn == true) {
+			roller.move(0);
+			forwardRollerOn = false;
+		}
+
+		// Use the L2 button to toggle the roller backward.
+		if (master.get_digital(DIGITAL_L2) && backwardRollerOn == false ) {
+			roller.move(-127);
+			backwardRollerOn = true;
+		}
+
+		// Use the L2 button to toggle the roller off if it is already on.
+		else if (master.get_digital(DIGITAL_L2) && backwardRollerOn == true) {
+			roller.move(0);
+			backwardRollerOn = false;
 		}
 	
     }
