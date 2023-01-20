@@ -111,16 +111,16 @@ void autonomous() {
             drivetrain->setState({0_in, 0_in, 0_deg});
 
             // Move the drivetrain backward 2 inches.
-            drivetrain->moveDistance(-2_in);
+            drivetrain->driveToPoint({0_in, -2_in});
 
             // Spin the roller to the red side.
-            color_spin();
+            roller.move_relative(100, 100);
             
             // Move the drivetrain forward 2 feet.
-            drivetrain->moveDistance(2_ft);
+            drivetrain->driveToPoint({0_in, 24_in});
             
             // Turn the drivetrain 45 degrees to the right.
-            drivetrain->turnAngle(45_deg);
+            drivetrain->turnToAngle(45_deg);
             
             // Move the drivetrain forward 12.7 feet.
             drivetrain->moveDistance(12.7_ft);
