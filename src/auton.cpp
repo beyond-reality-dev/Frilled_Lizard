@@ -23,7 +23,7 @@ void autonomous() {
         // Set the ports of the left and right motors.
         .withMotors(
             {3, 4}, // Left motors are at ports 3 & 4.
-            {-1, -2} // Right motors are at ports 1 & 2 (reversed).
+            {1, 2} // Right motors are at ports 1 & 2.
         )
         // Use the green gearset, 4 inch wheel diameter, and 14 inch wheel track.
         .withDimensions(AbstractMotor::gearset::green, {{4_in, 14_in}, imev5GreenTPR})
@@ -45,10 +45,12 @@ void autonomous() {
             drivetrain->setState({0_in, 0_in, 0_deg});
 
             // Move the drivetrain backward 2 inches.
-            drivetrain->moveDistance(-2_in);
+            drivetrain->driveToPoint({0_in, -2_in});
 
             // Spin the roller to the red side.
-            color_spin();
+            roller.move_voltage(12000);
+            pros::delay(1000);
+            roller.move_voltage(0);
 
             break;
 
@@ -109,22 +111,13 @@ void autonomous() {
 
             // Set the drivetrain state to zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
-
+            
             // Move the drivetrain backward 2 inches.
-            drivetrain->driveToPoint({0_in, -2_in});
+            drivetrain->moveDistance(-12_in);
 
             // Spin the roller to the red side.
-            roller.move_relative(100, 100);
-            
-            // Move the drivetrain forward 2 feet.
-            drivetrain->driveToPoint({0_in, 24_in});
-            
-            // Turn the drivetrain 45 degrees to the right.
-            drivetrain->turnToAngle(45_deg);
-            
-            // Move the drivetrain forward 12.7 feet.
-            drivetrain->moveDistance(12.7_ft);
-            
+
+
             break;
     
     }

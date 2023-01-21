@@ -44,10 +44,9 @@ pros::Motor launcher(LAUNCHER_PORT, pros::E_MOTOR_GEARSET_36, pros::E_MOTOR_ENCO
 void opcontrol() {
 
 	// Set booleans for the toggle switches.
-	bool intakeOn = false;
-	bool launcherOn = false;
-	bool forwardRollerOn = false;
-	bool backwardRollerOn = false;
+	bool intakeStopped = false;
+	bool launcherStopped = false;
+	bool rollerStopped = true;
 
 	while (true) {
 
@@ -58,53 +57,51 @@ void opcontrol() {
 		right_wheels.move(master.get_analog(ANALOG_RIGHT_Y));
 
 		// Use the R1 button to toggle the intake on.
-		if (master.get_digital(DIGITAL_R1) && intakeOn == false) {
+		if (master.get_digital(DIGITAL_R1) && intakeStopped == true) {
 			intake.move(127);
-			intakeOn = true;
+			intakeStopped = false;
+			pros::delay(100);
 		}
 
 		// Use the R1 button to toggle the intake off if it is already on.
-		else if (master.get_digital(DIGITAL_R1) && intakeOn == true) {
+		else if (master.get_digital(DIGITAL_R1) && intakeStopped == false) {
 			intake.move(0);
-			intakeOn = false;
+			intakeStopped = true;
+			pros::delay(100);
 		}
 
 		// Use the R2 button to toggle the launcher on.
-		if (master.get_digital(DIGITAL_R2) && launcherOn == false) {
+		else if (master.get_digital(DIGITAL_R2) && launcherStopped == true) {
 			launcher.move(127);
-			launcherOn = true;
+			launcherStopped = true;
+			pros::delay(100);
 		}
 
 		// Use the R2 button to toggle the launcher off if it is already on.
-		else if (master.get_digital(DIGITAL_R2) && launcherOn == true) {
+		else if (master.get_digital(DIGITAL_R2) && launcherStopped == false) {
 			launcher.move(0);
-			launcherOn = false;
+			launcherStopped = true;
+			pros::delay(100);
 		}
 
-		// Use the L1 button to toggle the roller forward.
-		if (master.get_digital(DIGITAL_L1) && forwardRollerOn == false) {
+		// Use the L1 button to manually spin the roller.
+		if (master.get_digital(DIGITAL_L1)) {
 			roller.move(127);
-			forwardRollerOn = true;
+			rollerStopped = false;
 		}
 
-		// Use the L1 button to toggle the roller off if it is already on.
-		else if (master.get_digital(DIGITAL_L1) && forwardRollerOn == true) {
-			roller.move(0);
-			forwardRollerOn = false;
-		}
-
-		// Use the L2 button to toggle the roller backward.
-		if (master.get_digital(DIGITAL_L2) && backwardRollerOn == false ) {
+		// Use the L2 button to manually spin the roller.
+		else if (master.get_digital(DIGITAL_L2)) {
 			roller.move(-127);
-			backwardRollerOn = true;
+			rollerStopped = false;
 		}
 
-		// Use the L2 button to toggle the roller off if it is already on.
-		else if (master.get_digital(DIGITAL_L2) && backwardRollerOn == true) {
+		// If neither the L1 or L2 buttons are pressed, stop the roller.
+		else if (rollerStopped == false) {
 			roller.move(0);
-			backwardRollerOn = false;
+			rollerStopped = true;
 		}
-	
+
     }
 
 }
