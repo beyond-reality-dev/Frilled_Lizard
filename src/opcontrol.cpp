@@ -33,30 +33,30 @@ void opcontrol() {
 
 		// Use the R1 button to toggle the intake on.
 		if (master.get_digital(DIGITAL_R1) && intakeStopped == true) {
-			intake.move(127);
+			intake.move(60);
 			intakeStopped = false;
-			pros::delay(100);
+			pros::delay(20);
 		}
 
 		// Use the R1 button to toggle the intake off if it is already on.
 		else if (master.get_digital(DIGITAL_R1) && intakeStopped == false) {
 			intake.move(0);
 			intakeStopped = true;
-			pros::delay(100);
+			pros::delay(20);
 		}
 
 		// Use the R2 button to toggle the launcher on.
-		else if (master.get_digital(DIGITAL_R2) && launcherStopped == true) {
-			launcher.move(127);
+		if (master.get_digital(DIGITAL_R2) && launcherStopped == true) {
+			launcher.move(-127);
 			launcherStopped = true;
-			pros::delay(100);
+			pros::delay(20);
 		}
 
 		// Use the R2 button to toggle the launcher off if it is already on.
 		else if (master.get_digital(DIGITAL_R2) && launcherStopped == false) {
 			launcher.move(0);
 			launcherStopped = true;
-			pros::delay(100);
+			pros::delay(20);
 		}
 
 		// Use the L1 button to manually spin the roller.

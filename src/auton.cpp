@@ -41,16 +41,16 @@ void autonomous() {
             // Set the target color to be red.
             target_color = "red";
 
-            // Set the drivetrain state to be zero.
+            // Set the drivetrain state to zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
-
+            
             // Move the drivetrain backward 2 inches.
-            drivetrain->driveToPoint({0_in, -2_in});
+            drivetrain->moveDistance(-2_in);
 
             // Spin the roller to the red side.
-            roller.move_voltage(12000);
-            pros::delay(1000);
-            roller.move_voltage(0);
+            roller.move(127);
+            pros::delay(125);
+            roller.move(0);
 
             break;
 
@@ -113,10 +113,21 @@ void autonomous() {
             drivetrain->setState({0_in, 0_in, 0_deg});
             
             // Move the drivetrain backward 2 inches.
-            drivetrain->moveDistance(-12_in);
+            drivetrain->moveDistance(-2_in);
 
             // Spin the roller to the red side.
+            roller.move(127);
+            pros::delay(125);
+            roller.move(0);
 
+            // Move the drivetrain forward 12 inches.
+            drivetrain->moveDistance(12_in);
+
+            // Turn the drivetrain 45 degrees to the right.
+            drivetrain->turnAngle(30_deg); // WIP
+
+            // Move the drivetrain forward 12.7 feet.
+            drivetrain->moveDistance(12.7_ft);
 
             break;
     
