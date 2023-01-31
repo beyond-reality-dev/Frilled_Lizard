@@ -47,7 +47,7 @@ void opcontrol() {
 
 		// Use the R2 button to toggle the launcher on.
 		if (master.get_digital(DIGITAL_R2) && launcherStopped == true) {
-			launcher.move(-127);
+			launcher.move(10);
 			launcherStopped = true;
 			pros::delay(20);
 		}

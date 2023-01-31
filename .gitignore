@@ -23,9 +23,6 @@ include/*
 !chessboard.hpp
 !color_spin.hpp
 
-# Auton Selector Files
-src/selection.cpp
-
 # Makefile
 Makefile
 common.mk
