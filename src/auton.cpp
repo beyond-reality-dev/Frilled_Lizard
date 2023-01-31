@@ -35,7 +35,7 @@ void autonomous() {
     // Run the autonomous based on the selector.
     switch (selector::auton) {
         
-        // Runs the autonomous code for the left side, red alliance (WIP).
+        // Runs the autonomous code for the left side, red alliance.
         case 1: 
 
             // Set the target color to be red.
@@ -49,7 +49,7 @@ void autonomous() {
 
             // Spin the roller to the red side.
             roller.move(127);
-            pros::delay(125);
+            pros::delay(ROLLER_SPIN_TIME);
             roller.move(0);
 
             break;
@@ -73,18 +73,20 @@ void autonomous() {
         // Runs the autonomous code for the left side, blue alliance (WIP).
         case -1: 
 
-            // Set the target color to be blue.
-            target_color = "blue";
+            // Set the target color to be red.
+            target_color = "red";
 
             // Set the drivetrain state to zero.
             drivetrain->setState({0_in, 0_in, 0_deg});
-
+            
             // Move the drivetrain backward 2 inches.
             drivetrain->moveDistance(-2_in);
-            
-            // Spin the roller to the blue side.
-            color_spin();
-            
+
+            // Spin the roller to the red side.
+            roller.move(127);
+            pros::delay(ROLLER_SPIN_TIME);
+            roller.move(0);
+
             break;
         
         // Runs the autonomous code for the right side, blue alliance (WIP).
@@ -117,7 +119,7 @@ void autonomous() {
 
             // Spin the roller to the red side.
             roller.move(127);
-            pros::delay(125);
+            pros::delay(ROLLER_SPIN_TIME);
             roller.move(0);
 
             // Move the drivetrain forward 12 inches.

@@ -21,3 +21,6 @@ extern pros::Motor_Group right_wheels;
 extern pros::Motor intake;
 extern pros::Motor roller;
 extern pros::Motor launcher;
+
+// Declare configurable constants.
+extern int ROLLER_SPIN_TIME;
