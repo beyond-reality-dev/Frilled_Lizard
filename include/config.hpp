@@ -1,6 +1,12 @@
 #pragma once
 #include "main.h"
 
+// Declare the drivetrain ports.
+extern int LEFT_BACK_PORT;
+extern int LEFT_FRONT_PORT;
+extern int RIGHT_BACK_PORT;
+extern int RIGHT_FRONT_PORT;
+
 // Declare the controllers.
 extern pros::Controller master;
 
