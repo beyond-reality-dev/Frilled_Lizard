@@ -22,8 +22,8 @@ void autonomous() {
 	std::shared_ptr<OdomChassisController> drivetrain = ChassisControllerBuilder()
         // Set the ports of the left and right motors.
         .withMotors(
-            {LEFT_BACK_PORT, LEFT_FRONT_PORT}, // Left motors are at ports 3 & 4.
-            {RIGHT_BACK_PORT, RIGHT_FRONT_PORT} // Right motors are at ports 1 & 2.
+            {3, 4}, // Left motors are at ports 3 & 4.
+            {1, 2} // Right motors are at ports 1 & 2.
         )
         // Use the green gearset, 4 inch wheel diameter, and 14 inch wheel track.
         .withDimensions(AbstractMotor::gearset::green, {{4_in, 14_in}, imev5GreenTPR})
