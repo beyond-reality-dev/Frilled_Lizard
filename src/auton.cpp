@@ -49,7 +49,7 @@ void autonomous() {
 
             // Spin the roller to the red side.
             roller.move(127);
-            pros::delay(ROLLER_SPIN_TIME);
+            pros::delay(ROLLER_QUARTER_SPIN_TIME);
             roller.move(0);
 
             break;
@@ -84,7 +84,7 @@ void autonomous() {
 
             // Spin the roller to the red side.
             roller.move(127);
-            pros::delay(ROLLER_SPIN_TIME);
+            pros::delay(ROLLER_QUARTER_SPIN_TIME);
             roller.move(0);
 
             break;
@@ -119,7 +119,7 @@ void autonomous() {
 
             // Spin the roller to the red side.
             roller.move(127);
-            pros::delay(ROLLER_SPIN_TIME);
+            pros::delay(ROLLER_HALF_SPIN_TIME);
             roller.move(0);
 
             // Move the drivetrain forward 12 inches.

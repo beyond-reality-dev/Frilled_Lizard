@@ -29,4 +29,5 @@ extern pros::Motor roller;
 extern pros::Motor launcher;
 
 // Declare configurable constants.
-extern int ROLLER_SPIN_TIME;
+extern int ROLLER_QUARTER_SPIN_TIME;
+extern int ROLLER_HALF_SPIN_TIME;

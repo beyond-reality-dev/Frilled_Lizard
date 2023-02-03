@@ -32,4 +32,5 @@ pros::Motor roller(ROLLER_PORT, pros::E_MOTOR_GEARSET_36, pros::E_MOTOR_ENCODER_
 pros::Motor launcher(LAUNCHER_PORT, pros::E_MOTOR_GEARSET_06, pros::E_MOTOR_ENCODER_DEGREES);
 
 // Configure configurable constants.
-int ROLLER_SPIN_TIME = 125;
+int ROLLER_QUARTER_SPIN_TIME = 125;
+int ROLLER_HALF_SPIN_TIME = 250;
