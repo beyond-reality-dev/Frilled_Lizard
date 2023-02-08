@@ -126,7 +126,7 @@ void autonomous() {
             drivetrain->moveDistance(12_in);
 
             // Turn the drivetrain 45 degrees to the right.
-            drivetrain->turnAngle(30_deg); // WIP
+            drivetrain->turnToAngle(45_deg);
 
             // Move the drivetrain forward 12.7 feet.
             drivetrain->moveDistance(12.7_ft);
