@@ -7,6 +7,17 @@ extern int LEFT_FRONT_PORT;
 extern int RIGHT_BACK_PORT;
 extern int RIGHT_FRONT_PORT;
 
+// Declare the other motor ports.
+extern int INTAKE_PORT;
+extern int ROLLER_PORT;
+extern int LAUNCHER_PORT;
+
+// Declare the pneumatic ports.
+extern int PLUNGER_PORT;
+
+// Declare the sensor ports.
+extern int COLOR_SENSOR_PORT;
+
 // Declare the controllers.
 extern pros::Controller master;
 
@@ -27,6 +38,9 @@ extern pros::Motor_Group right_wheels;
 extern pros::Motor intake;
 extern pros::Motor roller;
 extern pros::Motor launcher;
+
+// Declare the pneumatics.
+extern pros::ADIDigitalOut plunger;
 
 // Declare configurable constants.
 extern int ROLLER_QUARTER_SPIN_TIME;

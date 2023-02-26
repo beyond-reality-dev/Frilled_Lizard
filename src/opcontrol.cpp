@@ -31,18 +31,41 @@ void opcontrol() {
 		// Use the right joystick to move the right wheels of the robot.
 		right_wheels.move(master.get_analog(ANALOG_RIGHT_Y));
 
-		// Use the R1 button to toggle the intake on.
-		if (master.get_digital(DIGITAL_R1) && intakeStopped == true) {
+		// Use the L1 button to spin the roller.
+		if (master.get_digital(DIGITAL_L1)) {
+			roller.move(127);
+			rollerStopped = false;
+		}
+
+		// If L1 button is not pressed, stop the roller.
+		else if (rollerStopped == false) {
+			roller.move(0);
+			rollerStopped = true;
+		}
+
+		// Use the L2 button to toggle the intake on.
+		if (master.get_digital(DIGITAL_L2) && intakeStopped == true) {
 			intake.move(60);
 			intakeStopped = false;
 			pros::delay(20);
 		}
 
-		// Use the R1 button to toggle the intake off if it is already on.
-		else if (master.get_digital(DIGITAL_R1) && intakeStopped == false) {
+		// Use the L2 button to toggle the intake off if it is already on.
+		else if (master.get_digital(DIGITAL_L2) && intakeStopped == false) {
 			intake.move(0);
 			intakeStopped = true;
 			pros::delay(20);
+		}
+
+		// Use the R1 button to extend and retract the pneumatic plunger twice.
+		if (master.get_digital(DIGITAL_R1)) {
+			plunger.set_value(true);
+			pros::delay(500);
+			plunger.set_value(false);
+			pros::delay(500);
+			plunger.set_value(true);
+			pros::delay(500);
+			plunger.set_value(false);
 		}
 
 		// Use the R2 button to toggle the launcher on.
@@ -57,24 +80,6 @@ void opcontrol() {
 			launcher.move(0);
 			launcherStopped = true;
 			pros::delay(20);
-		}
-
-		// Use the L1 button to manually spin the roller.
-		if (master.get_digital(DIGITAL_L1)) {
-			roller.move(127);
-			rollerStopped = false;
-		}
-
-		// Use the L2 button to manually spin the roller.
-		else if (master.get_digital(DIGITAL_L2)) {
-			roller.move(-127);
-			rollerStopped = false;
-		}
-
-		// If neither the L1 or L2 buttons are pressed, stop the roller.
-		else if (rollerStopped == false) {
-			roller.move(0);
-			rollerStopped = true;
 		}
 
     }
