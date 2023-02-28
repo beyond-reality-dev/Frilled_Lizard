@@ -41,6 +41,7 @@ extern pros::Motor launcher;
 
 // Declare the pneumatics.
 extern pros::ADIDigitalOut plunger;
+extern pros::ADIDigitalOut expander;
 
 // Declare configurable constants.
 extern int ROLLER_QUARTER_SPIN_TIME;

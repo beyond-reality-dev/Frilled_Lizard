@@ -19,9 +19,10 @@
 void opcontrol() {
 
 	// Set booleans for the toggle switches.
-	bool intakeStopped = false;
-	bool launcherStopped = false;
+	bool intakeStopped = true;
+	bool launcherStopped = true;
 	bool rollerStopped = true;
+	bool expansionActivated = false;
 
 	while (true) {
 
@@ -70,8 +71,8 @@ void opcontrol() {
 
 		// Use the R2 button to toggle the launcher on.
 		if (master.get_digital(DIGITAL_R2) && launcherStopped == true) {
-			launcher.move(10);
-			launcherStopped = true;
+			launcher.move(127);
+			launcherStopped = false;
 			pros::delay(20);
 		}
 
@@ -82,6 +83,12 @@ void opcontrol() {
 			pros::delay(20);
 		}
 
+		// Use the Y button to activate the expansion mechanism.
+		if (master.get_digital(DIGITAL_Y) && expansionActivated == false) {
+			expander.set_value(true);
+			expansionActivated = true;
+			pros::delay(1000);
+			expander.set_value(false);
     }
 
 }
