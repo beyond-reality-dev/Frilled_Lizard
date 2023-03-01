@@ -89,6 +89,8 @@ void opcontrol() {
 			expansionActivated = true;
 			pros::delay(1000);
 			expander.set_value(false);
-    }
+    	}
+
+	}
 
 }
