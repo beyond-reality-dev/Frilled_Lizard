@@ -14,6 +14,7 @@ extern int LAUNCHER_PORT;
 
 // Declare the pneumatic ports.
 extern int PLUNGER_PORT;
+extern int EXPANDER_PORT;
 
 // Declare the sensor ports.
 extern int COLOR_SENSOR_PORT;

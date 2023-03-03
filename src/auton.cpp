@@ -122,14 +122,20 @@ void autonomous() {
             pros::delay(ROLLER_HALF_SPIN_TIME);
             roller.move(0);
 
-            // Move the drivetrain forward 12 inches.
-            drivetrain->moveDistance(12_in);
+            // Move the drivetrain forward 24 inches.
+            drivetrain->moveDistance(24_in);
 
-            // Turn the drivetrain 45 degrees to the right.
-            drivetrain->turnToAngle(45_deg);
+            // Turn the drivetrain 90 degrees to the right.
+            drivetrain->turnToAngle(90_deg);
 
-            // Move the drivetrain forward 12.7 feet.
-            drivetrain->moveDistance(12.7_ft);
+            // Move the drivetrain backward 24 inches.
+            drivetrain->moveDistance(24_in);
+
+            // Move the drivetrain forward 24 inches.
+            drivetrain->moveDistance(24_in);
+
+            // Trigger the expansion mechanism.
+            expander.set_value(true);
 
             break;
     
