@@ -45,28 +45,22 @@ void opcontrol() {
 		}
 
 		// Use the L2 button to toggle the intake on.
-		if (master.get_digital(DIGITAL_L2) && intakeStopped == true) {
-			intake.move(60);
+		if (master.get_digital(DIGITAL_L2)) {
+			intake.move(127);
 			intakeStopped = false;
-			pros::delay(20);
 		}
 
-		// Use the L2 button to toggle the intake off if it is already on.
-		else if (master.get_digital(DIGITAL_L2) && intakeStopped == false) {
+		// If the L2 button is not pressed, stop the intake.
+		else if (intakeStopped == false) {
 			intake.move(0);
 			intakeStopped = true;
-			pros::delay(20);
 		}
 
 		// Use the R1 button to extend and retract the pneumatic plunger twice.
 		if (master.get_digital(DIGITAL_R1)) {
-			plunger.set_value(true);
-			pros::delay(500);
-			plunger.set_value(false);
-			pros::delay(500);
-			plunger.set_value(true);
-			pros::delay(500);
-			plunger.set_value(false);
+			plunger.set_value(HIGH);
+			pros::delay(250);
+			plunger.set_value(LOW);
 		}
 
 		// Use the R2 button to toggle the launcher on.
@@ -83,12 +77,11 @@ void opcontrol() {
 			pros::delay(20);
 		}
 
-		// Use the Y button to activate the expansion mechanism.
-		if (master.get_digital(DIGITAL_Y) && expansionActivated == false) {
-			expander.set_value(true);
-			expansionActivated = true;
+		// Use the right button to activate the expansion mechanism.
+		if (master.get_digital(DIGITAL_RIGHT) && expansionActivated == false) {
+			expander.set_value(HIGH);
 			pros::delay(1000);
-			expander.set_value(false);
+			expander.set_value(LOW);
     	}
 
 	}

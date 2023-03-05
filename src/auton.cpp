@@ -48,7 +48,7 @@ void autonomous() {
             drivetrain->moveDistance(-2_in);
 
             // Spin the roller to the red side.
-            roller.move(127);
+            roller.move(-127);
             pros::delay(ROLLER_QUARTER_SPIN_TIME);
             roller.move(0);
 
@@ -123,19 +123,31 @@ void autonomous() {
             roller.move(0);
 
             // Move the drivetrain forward 24 inches.
-            drivetrain->moveDistance(24_in);
+            drivetrain->moveDistance(18_in);
+
+            // Wait for 2 seconds.
+            pros::delay(2000);
 
             // Turn the drivetrain 90 degrees to the right.
-            drivetrain->turnToAngle(90_deg);
+            drivetrain->turnAngleAsync(90_deg);
+            pros::delay(2000);
+            if (drivetrain->isSettled() != true) {
+                drivetrain->stop();
+            }
 
             // Move the drivetrain backward 24 inches.
-            drivetrain->moveDistance(24_in);
+            drivetrain->moveDistance(-24_in);
+
+            // Spin the roller to the red side.
+            roller.move(127);
+            pros::delay(ROLLER_QUARTER_SPIN_TIME);
+            roller.move(0);
 
             // Move the drivetrain forward 24 inches.
             drivetrain->moveDistance(24_in);
 
             // Trigger the expansion mechanism.
-            expander.set_value(true);
+            expander.set_value(HIGH);
 
             break;
     
