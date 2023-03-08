@@ -1,5 +1,7 @@
 # Frilled Lizard <!-- omit from toc -->
 
+UPDATE: This repository was archived on 3/8/2023, for more recent information please view [our website](https://beyond-reality-dev.github.io/Team-5588T/index).
+
 This is the official repository of VEX Robotics Competition team 5588T. 
 
 ## Table of Contents <!-- omit from toc -->
